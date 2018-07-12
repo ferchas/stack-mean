@@ -1,0 +1,13 @@
+{
+  "app": {
+    "cluster": false
+  },
+  "webpack": {
+    "minimize-css": false,
+    "uglify-js": false,
+    "bundles": {
+      "js": "bundle.develop.js",
+      "css": "bundle.develop.css"
+    }
+  }
+}

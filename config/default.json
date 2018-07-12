@@ -1,0 +1,26 @@
+{
+  "app": {
+    "name": "Proyect stack Mean",
+    "cluster": true,
+    "port": 8082,
+    "portS": 8443,
+    "lang": [
+      "es",
+      "en"
+    ]
+  },
+  "webpack": {
+    "minimize-css": true,
+    "uglify-js": true,
+    "public-path": "./",
+    "entryPoint": "./src/index.js",
+    "layout": {
+      "fileName": "index.html",
+      "template": "./src/index.html"
+    },
+    "bundles": {
+      "js": "bundle.[name].[hash].js",
+      "css": "bundle.[name].[hash].css"
+    }
+  }
+}

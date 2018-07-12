@@ -1,0 +1,58 @@
+{
+  "name": "app-stack-mean",
+  "version": "1.0.0",
+  "description": "Mini app for render a list user",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "test:unit": "",
+    "start": "NODE_ENV=production node ./index.js",
+    "dist": "NODE_ENV=production webpack --config webpack/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --config webpack.config.js",
+    "start-dev": "NODE_ENV=development nodemon ./index.js",
+    "debug": "nodemon --debug=5005 ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Ferchas",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "./",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "config": "^1.24.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.2",
+    "angular-aria": "^1.7.2",
+    "angular-material": "^1.1.10",
+    "angular-messages": "^1.7.2",
+    "autoprefixer": "^8.6.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-angular": "^6.0.15",
+    "css-loader": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-angular": "^3.3.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "nodemon": "^1.12.5",
+    "postcss-loader": "^2.1.6",
+    "postcss-smart-import": "^0.7.6",
+    "precss": "^3.1.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.0",
+    "webpack-command": "^0.4.1"
+  }
+}
