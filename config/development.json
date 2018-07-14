@@ -6,8 +6,8 @@
     "minimize-css": false,
     "uglify-js": false,
     "bundles": {
-      "js": "bundle.develop.js",
-      "css": "bundle.develop.css"
+      "js": "bundle.[name].js",
+      "css": "bundle.[name].css"
     }
   }
 }

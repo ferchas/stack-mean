@@ -9,6 +9,10 @@
       "en"
     ]
   },
+  "mongodb": {
+    "host": "mongodb://localhost",
+    "port": "27017"
+  },
   "webpack": {
     "minimize-css": true,
     "uglify-js": true,

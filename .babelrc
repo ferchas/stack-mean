@@ -1,6 +1,3 @@
 {
-  "presets": [
-    "angular"
-  ]
+  "presets": ["angular"]
 }
-  

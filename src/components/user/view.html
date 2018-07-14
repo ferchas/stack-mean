@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+        <form action="#" method="get" >
+            <div class="input-group">
+                <input class="form-control" name="user" placeholder="Search user" ng-model="search" required>
+                <span class="input-group-btn">
+                    <button type="button" class="btn" ng-click="searchUser()"><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-success" ng-click="addUser()">Add user</button>
+      <button type="button" class="btn btn-primary" ng-click="refreshUser()">Refresh</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row col-md-5">
+      <table st-table="rowCollection" class="table table-striped">
+        <thead>
+          <tr>
+            <th st-sort="id">id</th>
+            <th st-sort="number">Number</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in rowCollection">
+          <td>{{row.id}}</td>
+          <td>{{row.number}}</td>
+          <td>
+            <button type="button" ng-click="removeUser(row)" class="btn btn-sm btn-danger">
+              <i class="glyphicon glyphicon-remove-circle"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+        <tbody ng-show="isLoading">
+            <tr>
+              <td colspan="3" class="text-center">Loading ... </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
