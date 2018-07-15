@@ -3,7 +3,9 @@ import view from './view.html';
 
 const userController = ($scope, $http) => {
   $scope.rowCollection = [];
-  
+  $scope.isNotDataToSearch = false; 
+  $scope.isLoading = true;
+
   // Get user List
   const usterList = () => {
     $scope.isLoading = true;
@@ -34,7 +36,20 @@ const userController = ($scope, $http) => {
 
   // Search by ID
   $scope.searchUser = () => {
-    console.log($scope.search);
+    if ($scope.searchinput) {
+      $http.get(`/api/user/${$scope.searchinput}`)
+        .then((response) => {
+          if (response.data.length > 0 ) {
+            $scope.rowCollection = response.data;
+          } else {
+            $scope.isNotDataToSearch = true; 
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    
   };
 
   //add new user

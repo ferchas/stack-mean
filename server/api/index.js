@@ -57,9 +57,22 @@ routerApi.delete('/delete-user/:id', (req, res) => {
 });
 
 //  Search user by id
-routerApi.get('/user/:id ', (req, res) => { 
-  res.json({
-    id: 123,
+routerApi.get('/user/:userId ', (req, res) => { 
+  const resData = {};
+  const status = 200;
+  
+  MongoClient.connect(`${config.get('mongodb.host')}:${config.get('mongodb.port')}`, (err, client) => {
+    if (!err) {
+      const cUser = client.db('testUser').collection('user');
+      cUser.find({ id: parseInt(req.params.userId) }, { fields: { _id: 0 } }).toArray((err, doc) => {
+        res.status(status).json(doc);
+        client.close();
+      });
+    } else {
+      status = 412;
+      resData.msj = 'Not connect';
+      res.status(status).json(resData);
+    }
   });
 });
 
@@ -73,14 +86,13 @@ routerApi.get('/users', (req, res) => {
       const cUser = client.db('testUser').collection('user');
       cUser.find({}, { fields: { _id: 0 } }).toArray((err, doc) => {
         res.status(status).json(doc);
+        client.close();
       });
     } else {
       status = 412;
       resData.msj = 'Not connect';
       res.status(status).json(resData);
     }
-
-    client.close();
   });
 });
 
