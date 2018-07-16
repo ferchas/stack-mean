@@ -10,8 +10,9 @@ console.log(`Starting Webpack Build... Environment: ${appEnv}`);
 
 module.exports = {
   entry: {
+    vendor: ['angular', 'angular-ui-bootstrap', 'angular-smart-table'],
     app: config.get('webpack.entryPoint'),
-    vendor: ['angular-ui-bootstrap', 'angular-smart-table'],
+    
   },
   output: {
     filename: config.get('webpack.bundles.js'),
@@ -20,18 +21,14 @@ module.exports = {
   },
   mode: appEnv,
   optimization: {
-    minimize: false,
-    runtimeChunk: {
-        name: 'vendor'
-    },
+    minimize: true,
     splitChunks: {
         cacheGroups: {
             default: false,
             commons: {
-                test: /node_modules/,
-                name: "vendor",
+                test: 'vendor.',
                 chunks: "initial",
-                minSize: 1
+                minSize: 1,
             }
         }
     }
@@ -40,6 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({ // include bundles into html. Defined in entry
       filename: config.get('webpack.layout.fileName'),
       template: config.get('webpack.layout.template'),
+      
     }),
     new MiniCssExtractPlugin({
       filename: config.get('webpack.bundles.css'),
