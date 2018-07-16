@@ -57,7 +57,7 @@ routerApi.delete('/delete-user/:id', (req, res) => {
 });
 
 //  Search user by id
-routerApi.get('/user/:userId ', (req, res) => { 
+routerApi.get('/user/:userId', (req, res) => {
   const resData = {};
   const status = 200;
   

@@ -11,7 +11,8 @@ const userController = ($scope, $http) => {
     $scope.isLoading = true;
     $http.get('/api/users')
     .then((response) => {
-      $scope.rowCollection = response.data;
+      $scope.rowList = response.data;
+      $scope.rowCollection = [].concat(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -27,6 +28,7 @@ const userController = ($scope, $http) => {
         const index = $scope.rowCollection.indexOf(row);
         if (index !== -1) {
             $scope.rowCollection.splice(index, 1);
+            $scope.rowList.splice(index, 1);
         } 
       })
       .catch((error) => {
@@ -57,6 +59,7 @@ const userController = ($scope, $http) => {
     $http.post('/api/add-user')
       .then((response) => {
         $scope.rowCollection.push(response.data);
+        $scope.rowList.push(response.data);
       })
       .catch((error) => {
         console.log(error);
